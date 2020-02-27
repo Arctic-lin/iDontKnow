@@ -1,0 +1,15 @@
+2020-02-26 16:09:43,929 - __main__ - INFO - ============================================
+2020-02-26 16:09:44,766 - __main__ - INFO - Loading Default Config: Common
+2020-02-26 16:09:56,921 - __main__ - INFO - Update info:{'monkeylog': '0', 'mute': '0', 'only_apply': '1', 'adb_switch': '0', 'adb_content': '0'}
+2020-02-26 16:10:00,022 - __main__ - INFO - Dev_sn=['fb1007ba']  Work Status=True
+2020-02-26 16:10:00,022 - __main__ - INFO - Thread status:True
+2020-02-26 16:10:00,024 - __main__ - INFO - Thread Running
+2020-02-26 16:10:00,024 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-02-26 16:10:01,254 - __main__ - INFO - Get Monkey Package...
+2020-02-26 16:10:01,270 - __main__ - INFO - Write main.sh
+2020-02-26 16:10:01,317 - __main__ - INFO - Write main.txt
+2020-02-26 16:10:01,409 - __main__ - INFO - Start loop
+2020-02-26 16:10:01,409 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-02-26 16:10:01,884 - __main__ - DEBUG - fb1007ba:
+Alcatel/5002D_EEA/Seoul:10/QKQ1.191008.001/v3C47-0:user/release-key
+脚本已推送完成,请更换手机...

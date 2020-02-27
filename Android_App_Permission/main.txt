@@ -1,0 +1,2 @@
+cd /data/local/tmp
+sh main.sh&
