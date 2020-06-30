@@ -99,13 +99,13 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "V-AppsPermission"))
-        MainWindow.setWindowIcon(QtGui.QIcon(r"D:\Program\GithubProject\NewApplyPerMission\pokeballs.ico"))
+        MainWindow.setWindowIcon(QtGui.QIcon(r".\env\pokeballs.ico"))
         self.checkBox_nohup.setText(_translate("MainWindow", "nohup"))
         self.checkBox_nohup.setToolTip(_translate("MainWindow",
                                                   "<html><head/><body><p>部分手机无法通过sh后台执行,需用到nohup</p></body></html>"))
         self.pushButton_start.setText(_translate("MainWindow", "执行"))
         self.pushButton_init.setText(_translate("MainWindow", "初始化"))
-        self.pushButton_stop.setText(_translate("MainWindow", "没用的按钮"))
+        self.pushButton_stop.setText(_translate("MainWindow", "关闭"))
         self.checkBox_onlyApply.setText(_translate("MainWindow", "仅授权"))
         self.checkBox_monkeyTest.setText(_translate("MainWindow", "Monkey测试"))
 

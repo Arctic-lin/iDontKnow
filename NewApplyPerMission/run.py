@@ -106,14 +106,14 @@ class Thread_init_dev(QThread):
         log_tools = {
             "com.tcl.logger" : "am startservice -n com.tcl.logger/com.tcl.logger.service.LogSwitchService -a com.tcl.logger.turnon",
             "com.debug.loggerui" : "am broadcast -a com.debug.loggerui.ADB_CMD -e cmd_name start --ei cmd_target 1 -f 0x01000000",
-            "com.tct.feedback" : "am start com.tct.feedback/.external.activity.MainActivity"
+            "com.tct.feedback" : "am start com.tct.feedback/.external.activity.MainActivity",
+            "com.mediatek.mtklogger": "am broadcast -a com.mediatek.mtklogger.ADB_CMD -e cmd_name start --ei cmd_target 1"
         }
         for tools in log_tools.items():
             pmList = subprocess.check_output\
                 ("adb shell pm list package %s" % (tools[0]),encoding="utf-8")
             if pmList:
                 return tools[1]
-
     #生成脚本
     def creatShellScript(self):
         print(checkBox_Status)
@@ -143,7 +143,8 @@ class Thread_init_dev(QThread):
                     f.writelines("setprop debug.print.log false\n")
                     f.writelines("setprop debug.tct.enable_monkey_log false\n")
                     #通过
-                    f.writelines(log_tools + "\n")
+                    if log_tools:
+                        f.writelines(log_tools + "\n")
                     ### 写入执行静音脚本指令
                     if checkBox_Status["nohup"] == 1:
                         f.writelines(r"nohup sh /data/local/tmp/Mute.sh&" + "\n")
@@ -159,6 +160,7 @@ class Thread_init_dev(QThread):
             self.sinOut.emit("clear")
             self.sinOut.emit("初始化完成")
             self.sinOut_initButton.emit(True)
+            return True
         else:
             self.sinOut.emit("手机无需授权，请检查并更换手机初始化")
             self.sinOut_initButton.emit(False)
@@ -193,14 +195,15 @@ class MainWindow(QMainWindow,Ui_MainWindow):
 
     # 点击初始化，Disable其他push button
     def init_Device_Button(self,bool):
-        self.pushButton_start.setDisabled(bool)
-        self.pushButton_stop.setDisabled(bool)
-        if self.checkBox_onlyApply.isChecked():
+        if bool == True:
+            self.pushButton_start.setDisabled(bool)
+            self.pushButton_stop.setDisabled(bool)
             self.checkBox_onlyApply.setDisabled(bool)
-        elif self.checkBox_monkeyTest.isChecked():
             self.checkBox_monkeyTest.setDisabled(bool)
-        self.checkBox_nohup.setDisabled(bool)
-        self.pushButton_start.setEnabled(bool)
+            self.checkBox_nohup.setDisabled(bool)
+        elif bool== False:
+            self.pushButton_start.setDisabled(bool)
+            self.pushButton_stop.setDisabled(bool)
 
     #点击结束，Enable所有控件
     def init_Done(self,bool):
@@ -227,8 +230,8 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def end_Script(self):
         # self.thread_init_dev.__del__()
         # self.thread_run_script.__del__()
-        self.plainTextEdit.appendPlainText("?")
-        pass
+        # self.plainTextEdit.appendPlainText("?")
+        sys.exit(app.exec_())
 
 
     def textEdit_Info(self,text):
@@ -256,11 +259,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         checkBox_Status.update(current_status)
 
 if __name__ == '__main__':
-    # import ctypes
-    # whnd = ctypes.windll.kernel32.GetConsoleWindow()
-    # if whnd != 0:
-    #     ctypes.windll.user32.ShowWindow(whnd, 0)
-    #     ctypes.windll.kernel32.CloseHandle(whnd)
+    import ctypes
+    whnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if whnd != 0:
+        ctypes.windll.user32.ShowWindow(whnd, 0)
+        ctypes.windll.kernel32.CloseHandle(whnd)
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
