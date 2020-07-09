@@ -6,7 +6,6 @@
 # @Purpose :
 
 import sys
-import os
 from MiniScreenCapUI import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow,QApplication,QComboBox
 from PyQt5.Qt import QThread
@@ -16,8 +15,6 @@ import re
 from PIL import Image
 
 sed = r"D:\Program\Git\usr\bin\sed.exe"
-currentDev = ""
-indexx = 0
 class CustomComboBox(QComboBox):
     popUP = pyqtSignal()
 
@@ -37,18 +34,32 @@ class CustomComboBox(QComboBox):
         QComboBox.showPopup(self)
 
 class Thread_getPNG(QThread):
-    sinOut = pyqtSignal(list)
 
     def __init__(self):
         super().__init__()
+    # def callShell(self):
+    #     imgName = "%s_%d"%(currentDev,indexx)
+    #     subprocess.check_output("adb -s %s shell screencap -p | %s 's/\r$//' > ./%s.png"%(currentDev,sed,imgName),shell=True)
+    #     img = Image.open("%s.png"%imgName)
+    #     img.show()
 
-    def callShell(self):
-        imgName = "%s_%d"%(currentDev,indexx)
-        subprocess.check_output("adb -s %s shell screencap -p | %s 's/\r$//' > ./%s.png"%(currentDev,sed,imgName),shell=True)
-        img = Image.open("%s.png"%imgName)
+    def get_screenshot(self):
+        # 使用subprocess的Popen调用adb shell命令，并将结果保存到PIPE管道中
+        process = subprocess.Popen('adb shell screencap -p', shell=True, stdout=subprocess.PIPE)
+        # 读取管道中的数据
+        screenshot = process.stdout.read()
+        # 将读取的字节流数据的回车换行替换成'\n'
+        binary_screenshot = screenshot.replace(b'\r\n', b'\n')
+        # with open("%s_%s.png"%(self.dev,self.indexx),"wb") as f:
+        #     f.write(binary_screenshot)
+        # img = Image.open("%s_%s.png"%(self.dev,self.indexx))
+        with open("currentUI.png","wb") as f:
+            f.write(binary_screenshot)
+        img = Image.open("currentUI.png")
         img.show()
+
     def run(self):
-        self.callShell()
+        self.get_screenshot()
 
 class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
@@ -58,12 +69,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         self.comboBox.close()
         self.comboBox = CustomComboBox(self.layoutWidget)
         self.horizontalLayout.addWidget(self.comboBox)
-        self.Thread_getPNG = Thread_getPNG()
+        self.index = 0
     def getPNG(self):
-        global currentDev
-        global indexx
-        indexx += 1
+        self.index += 1
         currentDev = self.comboBox.currentText()
+        self.Thread_getPNG = Thread_getPNG()
         self.Thread_getPNG.start()
     def getDev(self):
         pass
