@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['D:\\Program\\github\\Fota\\runFota.py'],
+a = Analysis(['runFota.py'],
              pathex=['D:\\Program\\github\\Fota'],
              binaries=[],
              datas=[],
@@ -30,4 +30,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=True , icon='D:\\Program\\github\\Fota\\duck.ico')
+          console=True , icon='duck.ico')

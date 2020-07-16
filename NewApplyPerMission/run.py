@@ -82,7 +82,7 @@ class Thread_init_dev(QThread):
             self.sinOut.emit("未检测到设备")
             return False
 
-    # 通过dumpsys package $package | grep false 获取手机缺少的权限
+    # 示例:通过dumpsys package $package | grep false 获取手机APK缺少的权限
     def getPermmsion(self):
         allGrantCmd = []
         allPkg = subprocess.check_output\

@@ -147,7 +147,8 @@ class MyThread(threading.Thread):
 
 
     def run(self):
-        self.pushFile(mtbf_resource,r"/sdcard")
+        # self.pushFile(mtbf_resource,r"/sdcard")
+        self.rebootEDL()
         # pass
 def getDevSN():
     devices_info = subprocess.check_output ("adb devices", encoding="utf-8")

@@ -51,12 +51,12 @@ class MyThread(QThread):
         self.sinOutStatus.emit(self.dev,"推送Upgrade文件")
         self.sinOutProgress.emit(self.dev,30)
         print(self.dev)
-        subprocess.call("adb -s %s push %s /sdcard/.downloaded/upgrade.zip" % (self.dev,upgrade),shell=True)
+        subprocess.call(r"adb -s %s push %s /sdcard/.downloaded/upgrade.zip" % (self.dev,upgrade),shell=True)
         self.sinOutProgress.emit(self.dev,50)
         print(self.dev)
         self.sinOutStatus.emit(self.dev,"推送Downgrade文件")
         self.sinOutProgress.emit(self.dev,55)
-        subprocess.call("adb -s %s push %s /sdcard/.downloaded/downgrade.zip" % (self.dev, upgrade), shell=True)
+        subprocess.call(r"adb -s %s push %s /sdcard/.downloaded/downgrade.zip" % (self.dev, downgrade), shell=True)
         self.sinOutProgress.emit(self.dev,80)
         #安装apk
         self.sinOutStatus.emit(self.dev,"安装APK")
@@ -70,13 +70,13 @@ class MyThread(QThread):
         elif testType == "fotaTest":
             self.fotaTest()
 
-# class GetDevThread(QThread):
-#     def __init__(self):
-#         super().__init__()
-#     def getDevSN(self):
-#         devInfo = subprocess.check_output("adb devices", encoding="utf-8")
-#         devSN = re.findall("\n" + "(.*?)" + r"\t" + "(device|unauthorized|offline)", devInfo)
-#         return devSN
+class GetDevThread(QThread):
+    def __init__(self):
+        super().__init__()
+    def getDevSN(self):
+        devInfo = subprocess.check_output("adb devices", encoding="utf-8")
+        devSN = re.findall("\n" + "(.*?)" + r"\t" + "(device|unauthorized|offline)", devInfo)
+        return devSN
 
 class MainWindow(QMainWindow,Ui_MainWindow):
     def __init__(self):
@@ -94,11 +94,11 @@ class MainWindow(QMainWindow,Ui_MainWindow):
         #清除表格
         self.tableWidget.clearContents()
         #获取设备号
-        devInfo = subprocess.check_output("adb devices",encoding="utf-8")
-        devSN = re.findall("\n" + "(.*?)" + r"\t" + "(device|unauthorized|offline)", devInfo)
-        # self.getThread = GetDevThread()
-        # devSN = self.getThread.getDevSN()
-        # print(devSN)
+        # devInfo = subprocess.check_output("adb devices",encoding="utf-8")
+        # devSN = re.findall("\n" + "(.*?)" + r"\t" + "(device|unauthorized|offline)", devInfo)
+        self.getThread = GetDevThread()
+        devSN = self.getThread.getDevSN()
+        print(devSN)
         #添加到列表中
         # devid.clear()
         # for i in devSN:
@@ -109,6 +109,7 @@ class MainWindow(QMainWindow,Ui_MainWindow):
             for i in range(len(devSN)):
                 if devSN[i][-1]:
                     newItem_deivceId = QTableWidgetItem(devSN[i][0])
+                    print(newItem_deivceId)
                     if devSN[i][-1] == "device":
                         newItem_status = QTableWidgetItem("normal")
                     else:
@@ -122,7 +123,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
     def startFotaPreSet(self):
         self.btn_edl.setEnabled(False)
         self.btn_start.setEnabled(False)
-        self.btn_flashDev.setEnabled(False)
         global testType
         testType = "fotaTest"
         global upgrade,downgrade
@@ -192,8 +192,6 @@ class MainWindow(QMainWindow,Ui_MainWindow):
                 if text == devid:
                     newItem_deivceId = QTableWidgetItem(devstate)
                     self.tableWidget.setItem(i,1,newItem_deivceId)
-        if devstate == "完成":
-            self.btn_flashDev.setEnabled(True)
 
     def devProgress(self,devid,int_value):
         for i in range(5):

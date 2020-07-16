@@ -99,6 +99,17 @@ class MyThread(threading.Thread):
         print("adb -s %s shell %s" %(self.dev,cmds))
         os.system("adb -s %s shell %s" %(self.dev,cmds))
 
+    def monkeyPreSet(self):
+        resource = r"D:\Work\MTBF\Script\MTBF_base_script_resource\resource\enterPhoto"
+        apk = r"D:\Work\Monkey\APK\DataFillerS_v2.1.apk"
+        music = r"D:\Work\Monkey\resource"
+        os.system(r"adb -s %s push %s /sdcard/StabilityResource" % (self.dev,resource))
+        os.system(r"adb -s %s push %s /sdcard/Music" % (self.dev, music))
+        os.system(r"adb -s %s install -r %s" % (self.dev, apk))
+        # time.sleep(1)
+        os.system(r"adb -s %s reboot"%self.dev)
+
+
     #Memory Long_video
     def longVideoEnv(self):
         print("push video file dir:%s"%video)
@@ -145,9 +156,13 @@ class MyThread(threading.Thread):
                                 time_cost = end_time - start_time
                                 print(str(time_cost).split('.')[0])
 
-
+    def mute(self):
+        print("Mute Dut")
+        for i in range(1, 11):
+            print("adb -s %s shell media volume --stream %d --set 0" % (self.dev, i))
+            test = subprocess.getstatusoutput("adb -s %s shell media volume --stream %d --set 0" % (self.dev, i))
     def run(self):
-        self.rebootEDL()
+        self.mute()
 
 def getDevSN():
     devices_info = subprocess.check_output ("adb devices", encoding="utf-8")
