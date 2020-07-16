@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>544</width>
+    <height>367</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="btn_monkeyPreSet">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>330</y>
+      <width>101</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MonkeyPreSet</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>240</y>
+      <width>320</width>
+      <height>83</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="4">
+      <widget class="QPushButton" name="btn_downloadMode">
+       <property name="text">
+        <string>下载模式</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="btn_mute">
+       <property name="text">
+        <string>静音</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QPushButton" name="btn_singleADB">
+       <property name="text">
+        <string>自定义</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="btn_pushFile">
+       <property name="text">
+        <string>传输文件</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="btn_fota">
+       <property name="text">
+        <string>FOTA测试</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="btn_installAPK">
+       <property name="text">
+        <string>安装应用</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>501</width>
+      <height>223</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="btn_freshDdev">
+       <property name="text">
+        <string>刷新设备</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="btn_confimDev">
+       <property name="text">
+        <string>锁定设备</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="btn_start">
+       <property name="text">
+        <string>执行</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="3">
+      <widget class="QTableWidget" name="tableWidget">
+       <column>
+        <property name="text">
+         <string>DeviceID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Status</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Progress</string>
+        </property>
+       </column>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_fota</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_fotaTest()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>97</x>
+     <y>259</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_mute</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_mute()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>259</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>261</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_downloadMode</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_downloadMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>409</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>466</x>
+     <y>255</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_pushFile</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_pushfile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>115</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_installAPK</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_installAPK()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>292</x>
+     <y>303</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>137</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_singleADB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_usercho()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>397</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>473</x>
+     <y>300</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_monkeyPreSet</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_monkeyPreset()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>325</x>
+     <y>341</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>344</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_freshDdev</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_freshDev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>145</x>
+     <y>13</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>9</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_confimDev</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_lockDev()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>351</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>531</x>
+     <y>18</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_start</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>main_run()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>475</x>
+     <y>16</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>53</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>main_fotaTest()</slot>
+  <slot>main_mute()</slot>
+  <slot>main_downloadMode()</slot>
+  <slot>main_pushfile()</slot>
+  <slot>main_installAPK()</slot>
+  <slot>main_usercho()</slot>
+  <slot>main_monkeyPreset()</slot>
+  <slot>main_freshDev()</slot>
+  <slot>main_lockDev()</slot>
+  <slot>main_run()</slot>
+ </slots>
+</ui>
