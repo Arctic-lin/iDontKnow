@@ -13,3 +13,69 @@
 2020-02-26 16:10:01,884 - __main__ - DEBUG - fb1007ba:
 Alcatel/5002D_EEA/Seoul:10/QKQ1.191008.001/v3C47-0:user/release-key
 脚本已推送完成,请更换手机...
+2020-06-24 15:34:06,775 - __main__ - INFO - ============================================
+2020-06-24 15:34:07,747 - __main__ - INFO - Loading Default Config: Common
+2020-07-10 16:43:47,556 - __main__ - INFO - ============================================
+2020-07-10 16:43:47,640 - __main__ - INFO - Loading Default Config: Common
+2020-07-10 16:43:59,463 - __main__ - INFO - Update info:{'monkeylog': '1', 'mute': '1', 'only_apply': '0', 'adb_switch': '0', 'adb_content': 'None'}
+2020-07-10 16:43:59,479 - __main__ - INFO - Dev_sn=['KNVKDIT4USGEGIJB']  Work Status=True
+2020-07-10 16:43:59,479 - __main__ - INFO - Thread status:True
+2020-07-10 16:43:59,480 - __main__ - INFO - Thread Running
+2020-07-10 16:43:59,480 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:44:01,089 - __main__ - INFO - Get Monkey Package...
+2020-07-10 16:44:01,093 - __main__ - INFO - Write main.sh
+2020-07-10 16:44:01,093 - __main__ - INFO - Write main.txt
+2020-07-10 16:44:01,107 - __main__ - INFO - Start loop
+2020-07-10 16:44:01,107 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:44:01,309 - __main__ - DEBUG - KNVKDIT4USGEGIJB:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:44:04,518 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:44:11,684 - __main__ - DEBUG - INKBIV79LVS8I769:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:44:15,120 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:44:23,285 - __main__ - DEBUG - 9LROGEJRPVS8R4RC:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:44:25,309 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:50:49,688 - __main__ - DEBUG - 9SRSFYHU9PGEHUUO:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:50:51,711 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:50:57,888 - __main__ - DEBUG - 89S8S8VCZ5O7ZTDU:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:53:29,207 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:53:39,455 - __main__ - DEBUG - 9LROGEJRPVS8R4RC:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:53:45,421 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:53:49,660 - __main__ - DEBUG - INKBIV79LVS8I769:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:53:51,951 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:53:55,202 - __main__ - DEBUG - KNVKDIT4USGEGIJB:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:53:57,223 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:54:01,443 - __main__ - DEBUG - 9SRSFYHU9PGEHUUO:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:54:05,477 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:54:09,732 - __main__ - DEBUG - 9LROGEJRPVS8R4RC:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:54:23,618 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:54:27,800 - __main__ - DEBUG - INKBIV79LVS8I769:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:54:33,389 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:54:37,538 - __main__ - DEBUG - KNVKDIT4USGEGIJB:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:54:41,843 - __main__ - INFO - <<<Wait-For-Device>>>
+2020-07-10 16:54:47,104 - __main__ - DEBUG - 9SRSFYHU9PGEHUUO:
+TCL/5033M/U3A_PLUS_4G:8.1.0/O11019/v7L7C-0:user/release-key
+脚本已推送完成,请更换手机...
+2020-07-10 16:54:53,655 - __main__ - INFO - <<<Wait-For-Device>>>

@@ -20,6 +20,8 @@ video = r"D:\Work\MemoryTest\Source\Video\Source.mp4"
 more_apk = r"D:\Work\MemoryLeak\resource\APK"
 thor_monkey_log = r"D:\Work\Monkey\Thro8"
 mtbf_resource = r"D:\Work\MTBF\Script\Thor\StabilityResource"
+monkey_music = r"D:\Chaos\MyFiles\ForLife\monkey"
+apk=r"D:\Chaos\Installer\lyncfiles\DataFillerS_v2.1.apk"
 
 class MyThread(threading.Thread):
     def __init__(self,dev):
@@ -66,7 +68,10 @@ class MyThread(threading.Thread):
         print("push file to Dev:%s from %s to %s" % (self.dev,file_from, file_to))
         # subprocess.call("adb -s %s push %s /sdcard/.downloaded/upgrade.zip" % (self.dev, upgrade), shell=True)
         subprocess.call("adb -s %s push %s %s" % (self.dev,file_from, file_to))
+        # subprocess.call("adb -s %s shell rm -r /sdcard/Music"%self.dev)
 
+    def installFillter(self,files):
+        subprocess.call("adb -s %s install -r %s"%(self.dev,files))
     #安装apk
     def installAPK(self,reName=True):
         filedir = more_apk
@@ -148,8 +153,10 @@ class MyThread(threading.Thread):
 
     def run(self):
         # self.pushFile(mtbf_resource,r"/sdcard")
-        self.rebootEDL()
-        # pass
+        # self.pushFile(monkey_music,"/sdcard")
+        # self.installFillter(apk)
+        # self.rebootEDL()
+        self.shellCmd("pm uninstall com.example.filleventtests")
 def getDevSN():
     devices_info = subprocess.check_output ("adb devices", encoding="utf-8")
     dut_sn = re.findall ("\n" + "(.*?)" + r"\tdevice", devices_info)

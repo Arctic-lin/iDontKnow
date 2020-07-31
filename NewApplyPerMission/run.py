@@ -94,7 +94,7 @@ class Thread_init_dev(QThread):
                     ("adb shell dumpsys package %s | grep granted=false" % pkg, encoding= "utf-8")
             except subprocess.CalledProcessError as e:
                 print(e)
-            else:
+            finally:
                 if getFalse:
                     re_getFalse = re.findall("\s*" + "(.*?)" + "\\:", getFalse)
                     for p in re_getFalse:
